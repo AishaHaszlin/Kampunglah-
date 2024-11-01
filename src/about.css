@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --tenne-tawny: #d65108;
+    --tenne-tawny-dark: #b54507;
+    --header-height: 70px;
+    --header-bg: linear-gradient(135deg, #d65108 0%, #b54507 100%);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F0F4F8;
+    padding-top: 100px;
+    line-height: 1.6;
+}
+
+
+
+/* Header Container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: var(--header-bg);
+    color: #fff;
+    position: fixed;
+    width: 100%; /* Set to 100% for full-width */
+    height: var(--header-height);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: var(--transition);
+    left: 0; /* Ensures the header aligns with the viewport */
+    top: 0; /* Fixes the header to the top */
+}
+
+/* Adjust top margin of .crud-container to avoid overlap with header */
+.crud-container {
+    margin-top: calc(var(--header-height) + 20px);
+}
+
+
+.header.scrolled {
+    height: 60px;
+    background: rgba(214, 81, 8, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.logo:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.logo:hover:after {
+    transform: scaleX(1);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: var(--transition);
+    position: relative;
+    text-shadow: var(--text-shadow);
+}
+
+.nav-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a:hover:before {
+    width: 80%;
+}
+
+.nav-links .nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.nav-links .nav-link:hover {
+    color: #ffffff; /* Hover color for links */
+    background-color: rgba(255, 255, 255, 0.1) ; /* Hover background, match with theme color */
+}
+
+/* Special Styling for Quit Button */
+.quit-btn {
+    color: #f44336; /* Red color for quit button */
+}
+
+.quit-btn:hover {
+    background-color: #e57373; /* Lighter red for hover */
+}
+
+
+/* Mobile Navigation */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 0 1rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+}
+
+/* Add these styles to your existing CSS */
+.crud-container {
+    margin-top: calc(var(--header-height) + 20px);
+}
+
+
+/* About Us Section */
+/* About Us Section */
+.about-us-box {
+    padding: 20px;
+    background-color: #FFF8E7; /* Soft cream for better readability */
+    text-align: center;
+    width: 80%;
+    margin-top: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us-box h2 {
+    font-size: 28px;
+    color: var(--tenne-tawny-dark);
+}
+
+.green-text {
+    color: var(--tenne-tawny);
+}
+
+.gray-text {
+    color: #7D7D7D; /* Muted gray for softer contrast */
+}
+
+/* Mission and Vision Sections */
+.image-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 30px;
+    background-color: #F4F0E6; /* Light, warm background */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 90%;
+}
+
+.mission-section .text-content {
+    order: 1;
+    text-align: left;
+    color: #4A4A4A; /* Dark gray for text */
+}
+
+.vision-section .text-content {
+    order: 2;
+    text-align: right;
+    color: #4A4A4A;
+}
+
+.text-content h2 {
+    font-size: 28px;
+    color: var(--tenne-tawny-dark); /* Using darker tawny for headings */
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 18px;
+    color: #6B6B6B; /* Slightly lighter gray for paragraph text */
+}
+
+/* Footer Styling */
+footer {
+    background-color:var(--tenne-tawny);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #FFA45B; /* Soft orange to complement footer background */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

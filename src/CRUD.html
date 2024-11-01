@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner CRUD</title>
+    <link rel="stylesheet" href="CRUD.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Kampunglah!</div>
+        <nav class="nav-links">
+            <a href="index.html" style="--item-index: 0" class="nav-link">Home</a>
+            <a href="CRUD.html" style="--item-index: 1" class="nav-link">Meal Planner</a>
+            <a href="#contact" style="--item-index: 2" class="nav-link">Contact</a>
+            <button class="nav-link quit-btn" onclick="quitWebsite()">Quit</button>
+        </nav>
+    </header><br><br><br><br>
+
+    <div class="crud-container">
+        <div class="crud-header">
+            <h1>Meal Planner and Groceries List</h1>
+        </div>
+
+        <div class="crud-buttons">
+            <button class="crud-btn" onclick="showCreateForm()">Create New Recipe</button>
+            <button class="crud-btn" onclick="loadSavedRecipes()">View All Recipes</button>
+        </div>
+
+        <div id="createForm" style="display: none;">
+            <h2>Create New Recipe</h2>
+            <input type="hidden" id="recipeId" value="">
+            
+            <div class="form-group">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName" required>
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" rows="6" required></textarea>
+            </div>
+            <button id="saveBtn" class="crud-btn" onclick="saveRecipe()">Save Recipe</button>
+        </div>
+        
+        <div id="recipeList" class="meal-list"></div>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
+
+    <footer id="contact">
+        <p>&copy; 2024 Kampunglah! All rights reserved.</p>
+        <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        <p>by Aisha Haszlin</p>
+        <p>Contact: 013-5468345</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

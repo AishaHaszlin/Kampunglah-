@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --tenne-tawny: #d65108;
+    --tenne-tawny-dark: #b54507;
+    --header-height: 70px;
+    --header-bg: linear-gradient(135deg, #d65108 0%, #b54507 100%);
+    --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Header Container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background: var(--header-bg);
+    color: #fff;
+    position: fixed;
+    width: 97%; /* Set to 100% for full-width */
+    height: var(--header-height);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: var(--transition);
+    left: 0; /* Ensures the header aligns with the viewport */
+    top: 0; /* Fixes the header to the top */
+}
+
+/* Adjust top margin of .crud-container to avoid overlap with header */
+.crud-container {
+    margin-top: calc(var(--header-height) + 20px);
+}
+
+
+.header.scrolled {
+    height: 60px;
+    background: rgba(214, 81, 8, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-shadow: var(--text-shadow);
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--transition);
+}
+
+.logo:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.logo:hover:after {
+    transform: scaleX(1);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: var(--transition);
+    position: relative;
+    text-shadow: var(--text-shadow);
+}
+
+.nav-links a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a:hover:before {
+    width: 80%;
+}
+
+.nav-links .nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.nav-links .nav-link:hover {
+    color: #ffffff; /* Hover color for links */
+    background-color: rgba(255, 255, 255, 0.1) ; /* Hover background, match with theme color */
+}
+
+/* Special Styling for Quit Button */
+.quit-btn {
+    color: #f44336; /* Red color for quit button */
+}
+
+.quit-btn:hover {
+    background-color: #e57373; /* Lighter red for hover */
+}
+
+
+/* Mobile Navigation */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--transition);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 0 1rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+}
+
+/* Add these styles to your existing CSS */
+.crud-container {
+    margin-top: calc(var(--header-height) + 20px);
+}
+
+/* Animation for links */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-links a {
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.1s);
+}
+
+:root {
+    --tenne-tawny: #d65108;
+    --tenne-tawny-dark: #b54507;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0px;
+    background-color: #f5f5f5;
+    
+}
+
+.crud-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.crud-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.crud-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.crud-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--tenne-tawny);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.crud-btn:hover {
+    background-color: var(--tenne-tawny-dark);
+}
+
+.meal-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.meal-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background: white;
+}
+
+.meal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+footer {
+    background-color: var(--tenne-tawny);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 97%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #FFC857;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
